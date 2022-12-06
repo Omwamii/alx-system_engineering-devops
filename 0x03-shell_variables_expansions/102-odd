@@ -1,2 +1,2 @@
 #!/bin/bash
-wc -l | grep -E '^1?[0-9]?[02468]$'
+perl -lne 'print if $. %2 == 1'
