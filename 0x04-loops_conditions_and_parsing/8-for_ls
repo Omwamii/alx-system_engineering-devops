@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # displays filenames without first dash
-for file in $(ls)
+for file in *
 do
 	echo "$file" | cut -f 2 -d "-"
 done
