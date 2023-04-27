@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#Displays 'Best School' using until
+i=10
+until [ $i -lt 1 ]
+do
+	echo "Best School"
+	i=$(( $i - 1 ))
+done
