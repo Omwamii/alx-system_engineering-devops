@@ -2,7 +2,7 @@
 # Displays time: hrs minutes
 min=0
 hour=0
-while [ $hour -lt 12 ]
+while [ $hour -le 12 ]
 do
 	if [ $min = 0 ]
 	then
