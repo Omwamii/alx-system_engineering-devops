@@ -20,6 +20,8 @@ int main(void)
 			printf("Zombie process created, PID: %d\n", getpid());
 			exit(0);
 		}
+		else
+			sleep(1);
 	}
 	infinite_while(); /* prevent parent from terminating and orphaning children */
 	return (0);
