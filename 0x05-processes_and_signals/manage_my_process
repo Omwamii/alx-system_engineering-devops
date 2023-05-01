@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# writes 'I am alive!' to /tmp/my_process indefinitely
+while true
+do
+	echo "I am alive!" | tee -a /tmp/my_process > /dev/null
+	sleep 2
+done
