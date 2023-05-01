@@ -15,12 +15,11 @@ int main(void)
 
 	for (i = 0; i < 5; i++)
 	{
-		if (fork() > 0) /* child */
+		if (fork() == 0) /* child */
 		{
 			printf("Zombie process created, PID: %d\n", getpid());
-		}
-		else
 			exit(0);
+		}
 	}
 	infinite_while(); /* prevent parent from terminating and orphaning children */
 	return (0);
