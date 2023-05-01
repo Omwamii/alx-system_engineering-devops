@@ -22,7 +22,7 @@ int main(void)
 		else
 			exit(0);
 	}
-	infinite_while();
+	infinite_while(); /* prevent parent from terminating and orphaning children */
 	return (0);
 }
 
