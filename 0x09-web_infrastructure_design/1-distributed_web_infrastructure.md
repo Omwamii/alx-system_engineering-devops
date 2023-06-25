@@ -10,7 +10,7 @@
 
  - **Web server (Nginx)** - it serves static files and handles client requests by forwarding requests to the application server for processing
 
- -**Database** - It stores and manages the website data. It is used by the application servers in processing dynamic data
+ - **Database** - It stores and manages the website data. It is used by the application servers in processing dynamic data
 
 - **Codebase** - this consists of the code used by the application servers to process dynamic requests
 
