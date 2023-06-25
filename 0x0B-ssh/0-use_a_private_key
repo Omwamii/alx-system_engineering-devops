@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# script to connect to server using private key in ~/.ssh/school
+# with user: ubuntu
+ssh-copy-id -i ~/.ssh/school ubuntu@206724-web-01
+ssh -i ~/.ssh/school ubuntu@206724-web-01
