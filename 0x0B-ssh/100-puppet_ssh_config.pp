@@ -1,10 +1,16 @@
-# puppet to setup configuration
-file {'$HOME/.ssh/config':
-	ensure   => present,
-	content  => "Host 206724-web-01\n
-		HostName 54.84.24.93\n
-		User     ubuntu\n
-		IdentityFile       $HOME/.ssh/school\n
-		PreferredAuthentications publickey\n
-		PasswordAuthentication no\n"
+# puppet to make changes to config file
+include stdlib
+
+file_line { 'Turn off passwd auth':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+  replace => true,
+}
+
+file_line { 'Delare identity file':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
