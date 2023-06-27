@@ -3,7 +3,9 @@
 apt-get update
 apt-get install -y nginx
 ufw allow 'Nginx HTTP'
-echo "Hello World!" | sudo tee /etc/nginx/html/index.html
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
 touch /etc/nginx/html/error.html
 echo -e "Ceci n'est pas une page\n" > /etc/nginx/html/error.html
 printf %s "server {
