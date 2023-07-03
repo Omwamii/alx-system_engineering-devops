@@ -1,5 +1,32 @@
 #!/usr/bin/env bash
 # configure nginx response custom header
+#!/usr/bin/env bash
+# script to install nginx and redirect 'redirect_me'
+apt-get update
+apt-get install -y nginx
+ufw allow 'Nginx HTTP'
+mkdir -p /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World!" > /etc/nginx/html/index.html
+touch /etc/nginx/html/error.html
+echo -e "Ceci n'est pas une page\n" > /etc/nginx/html/error.html
+printf %s "server {
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    error_page 404 /error.html;
+    location /error {
+             root /etc/nginx/html;
+             internal;
+     }
+}" > /etc/nginx/sites-available/default
+# service nginx restart
 head_var='add_header X-Served-By $HOSTNAME;'
 config_file='/etc/nginx/nginx.conf'
 sudo sed -i "/http {/a $head_var" "$config_file"
