@@ -3,7 +3,7 @@
 sudo apt-get install -y --no-install-recommends software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.6  # enable ppa repo
 sudo apt-get update
-sudo apt-get install -y haproxy=2.6.\*
+sudo apt-get install -y haproxy
 sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bk
 printf %s "
 frontend traffic-in
