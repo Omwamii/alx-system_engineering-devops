@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
-# configure nginx response custom header
-#!/usr/bin/env bash
-# script to install nginx and redirect 'redirect_me'
+# configure to install nginx and configure http response custom header
 apt-get update
 apt-get install -y nginx
 ufw allow 'Nginx HTTP'
@@ -26,7 +24,6 @@ printf %s "server {
              internal;
      }
 }" > /etc/nginx/sites-available/default
-# service nginx restart
 head_var='add_header X-Served-By $HOSTNAME;'
 config_file='/etc/nginx/nginx.conf'
 sudo sed -i "/http {/a $head_var" "$config_file"
