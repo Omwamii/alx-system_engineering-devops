@@ -3,5 +3,5 @@
 sudo apt update && apt-get -y upgrade
 sudo apt install -y curl
 apt-get install -y nginx
-# sudo apt-get -y install ufw
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
