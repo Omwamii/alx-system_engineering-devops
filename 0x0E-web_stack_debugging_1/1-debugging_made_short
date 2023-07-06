@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 # script to configure Nginx to run and listen on :80
-sudo apt update && apt-get upgrade
-sudo apt install -y curl
-apt-get install -y nginx
-sudo apt-get -y install ufw
-ufw allow 'Nginx HTTP'
-service nginx restart
-service nginx stop
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx restart
+echo "" | sudo dd status=none of=/run/nginx.pid
