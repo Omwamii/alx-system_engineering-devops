@@ -1,0 +1,35 @@
+frontend http-in
+   bind *:80
+   mode http
+   default_backend web-servers
+   timeout client 30s
+
+frontend https-in
+    bind *:443 ssl crt /etc/haproxy/certs/www.omwamii.tech.pem
+    mode http
+    acl is_www_subdomain hdr(host) -i www.omwamii.tech
+    use_backend self-server if is_www_subdomain
+    default_backend web-servers
+    timeout client 30s
+
+backend self-server
+    mode http
+    timeout connect 30s
+    timeout server 30s
+    server self 54.236.43.139:80 check
+
+backend web-servers
+    balance roundrobin
+    mode http
+    timeout connect 30s
+    timeout server 30s
+    server 206724-web-01 54.84.24.93:80 check
+    server 206724-web-02 34.224.95.244:80 check
+
+global
+    maxconn 2048
+    tune.ssl.default-dh-param 2048
+
+defaults
+    option forwardfor
+    option http-server-close
