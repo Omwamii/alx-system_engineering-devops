@@ -1,0 +1,25 @@
+frontend http-in
+   bind *:80
+   bind *:443 ssl crt /etc/haproxy/certs/www.omwamii.tech.pem
+   mode http
+   timeout client 30s
+   http-request redirect scheme https code 301 unless { ssl_fc }
+   default_backend web-servers
+
+backend web-servers
+    balance roundrobin
+    mode http
+    timeout connect 30s
+    timeout server 30s
+    server 206724-web-01 54.84.24.93:80 check
+    server 206724-web-02 34.224.95.244:80 check
+    server self 54.236.43.139:80 check
+
+global
+    maxconn 2048
+    tune.ssl.default-dh-param 2048
+
+defaults
+    option forwardfor
+    option http-server-close
+    timeout client 30s
