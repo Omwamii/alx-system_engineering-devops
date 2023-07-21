@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# script to create backup of MySQL databases
+
+DB_USER="root"
+DB_PASS="$1"
+DATE=$(date +"%Y-%m-%d")
+
+mysqldump --user=$DB_USER --password=$DB_PASS --all-databases > backup.sql
+
+tar -zcvf $DATE.tar.gz backup.sql
