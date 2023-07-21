@@ -2,8 +2,7 @@
 # bash command to get nginx running as non-root user
 sudo apt-get install -y lsof
 sudo lsof -ti :8080 | xargs kill # kill any process on port 8080
+chmod 644 /etc/nginx/nginx.conf
 sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
 sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
-sudo chown nginx:nginx /var/log/nginx/error.log
-sudo chown nginx:nginx /var/log/nginx/access.log
 su nginx -s /bin/bash -c 'service nginx restart'
