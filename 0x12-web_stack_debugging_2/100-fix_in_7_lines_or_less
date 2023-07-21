@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
-# run nginx as non-root shorter version
-sudo lsof -ti :8080 | xargs kill
-sudo sed -i '/^user/c\user nginx;' /etc/nginx/nginx.conf
-sudo sed -i 's/listen 80 default_server;/listen 8080 default_server;/' /etc/nginx/sites-enabled/default
-sudo sed -i 's/listen \[::\]:80 default_server ipv6only=on;/listen \[::\]:8080 default_server ipv6only=on;/' /etc/nginx/sites-enabled/default
-sudo chown nginx:nginx /var/log/nginx/error.log /var/log/nginx/access.log
-nginx -c /etc/nginx/nginx.conf
+# bash command to get nginx running as non-root user
+pkill apache2 # stop process on port 8080
+chmod 644 /etc/nginx/nginx.conf
+sed -Ei 's/\s*#?\s*user .*/user nginx;/' /etc/nginx/nginx.conf
+sed -Ei 's/(listen (\[::\]:)?80) /\180 /' /etc/nginx/sites-enabled/default
+su nginx -s /bin/bash -c 'service nginx restart'
