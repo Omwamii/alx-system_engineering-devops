@@ -18,12 +18,11 @@ if __name__ == "__main__":
         user_tasks = list()
         for todo in todo_list:
             task = dict()
+            task['username'] = str(employee.get('username'))
             task['task'] = todo['title']
             task['completed'] = todo['completed']
-            task['username'] = str(employee.get('username'))
             user_tasks.append(task)
-        print(f"{employee.get('id')}: {user_tasks}")
-        json_data[employee.get('id')] = user_tasks
+        json_data[emp_id] = user_tasks
 
     with open(file_name, 'w') as f:
         json.dump(json_data, f)
