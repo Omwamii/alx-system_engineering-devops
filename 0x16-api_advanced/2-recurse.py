@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Print top ten hot posts of subreddit
+""" Return number of subscribers for a sub-reddit
 """
 import requests
 
