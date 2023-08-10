@@ -2,7 +2,6 @@
 """ Return list of hot posts for subreddit
 """
 import requests
-import uuid
 
 
 def recurse(subreddit, hot_list=[], after=None):
