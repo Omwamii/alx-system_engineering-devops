@@ -5,11 +5,13 @@ import requests
 
 
 def recurse(subreddit, hot_list=[], after=None):
+    """ find all hot posts
+    """
     req_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
     params = {'after': after}
     headers = {'User-agent': 'Uniq 1.0'}
 
-    response = requests.get(req_url, params=params, headers=headers
+    response = requests.get(req_url, params=params, headers=headers,
                             allow_redirects=False)
 
     if response.status_code != 200:  # subreddit does not exist
