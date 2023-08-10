@@ -5,7 +5,7 @@ import requests
 
 
 def count_words(subreddit, word_list, instances={}, after="", count=0):
-    """Parse list of hot posts and return count of certain keywords
+    """ Parse list of hot posts and return count of certain keywords
     """
     URL = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
     headers = {
@@ -46,7 +46,7 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
             print("")
             return
         instances = sorted(instances.items(), key=lambda keyval: (-keyval[1],
-                           keyval[0]))
+                                                                  keyval[0]))
         [print("{}: {}".format(key, val)) for key, val in instances]
     else:
         count_words(subreddit, word_list, instances, after, count)
