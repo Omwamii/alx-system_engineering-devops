@@ -9,9 +9,9 @@ def recurse(subreddit, hot_list=[], after=None):
     """
     req_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
     params = {'after': after}
-    headers = {'User-agent': 'Uniq 1.0'}
+    head = {'User-agent': 'Ubuntu.20.04:alx.advanced.api:v1.0 (by /u/sk001)'}
 
-    response = requests.get(req_url, params=params, headers=headers,
+    response = requests.get(req_url, params=params, headers=head,
                             allow_redirects=False)
 
     if response.status_code != 200:  # subreddit does not exist
@@ -28,8 +28,9 @@ def recurse(subreddit, hot_list=[], after=None):
 
         req_url = f'https://www.reddit.com/r/{subreddit}/hot.json'
         params = {'after': after}
-        headers = {'User-agent': 'Uniq 1.0'}
-        response = requests.get(req_url, params=params, headers=headers)
+        head = {'User-agent': 'Ubuntu.20.04:alx.advanced.api:v1.0 \
+                (by /u/sk001)'}
+        response = requests.get(req_url, params=params, headers=head)
 
         data = response.json().get('data')
         children = data.get('children', [])
