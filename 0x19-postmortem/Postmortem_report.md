@@ -3,8 +3,7 @@
 ## Empty response from the server
 
 ### Incident report on [ apache2 empty response from server ](https://github.com/Omwamii/alx-system_engineering-devops/tree/master/0x0D-web_stack_debugging_0)
-![Insert laughs] (https://www.agileanalytics.cloud/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fzensoftwaresite-media-zen-platform%2Fpreview_picture_807aa64858%2Fpreview_picture_807aa64858.webp&w=750&q=75)
-
+![Insert laughs](https://www.agileanalytics.cloud/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fzensoftwaresite-media-zen-platform%2Fpreview_picture_807aa64858%2Fpreview_picture_807aa64858.webp&w=750&q=75)
 
 ### Summary
 On june 2023 after installing apache service on webserver on a docker container, on testing the server on localhost using curl utility, the server returned an empty response error.
