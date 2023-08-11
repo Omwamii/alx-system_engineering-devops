@@ -7,8 +7,8 @@
 
 ### Summary
 On june 2023 after installing apache service on webserver on a docker container, on testing the server on localhost using curl utility, the server returned an empty response error.
-`curl 0:8080`
-— curl: (52) Empty reply from server
+ - `curl 0:8080`
+ - `curl: (52) Empty reply from server`
 
 
 #### Timeline
