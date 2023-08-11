@@ -7,8 +7,8 @@
 
 ### Summary
 On june 2023 after installing apache service on webserver on a docker container, on testing the server on localhost using curl utility, the server returned an empty response error.
- - `curl 0:8080`
- - `curl: (52) Empty reply from server`
+     `curl 0:8080`
+     `curl: (52) Empty reply from server`
 
 
 #### Timeline
@@ -27,7 +27,7 @@ On june 2023 after installing apache service on webserver on a docker container,
 
 #### Root Cause and Resolution
 
-The issue was the configuration file needed to be completely configured. The *ServerName* directive had not been set, so the server did not have a specific domain name to bind to (For a user to query). Since I was querying my localhost I had to explicitly set the localhost as the ServerName in the /etc/apache2/apache2.conf
+The issue was the configuration file needed to be completely configured. The **ServerName** directive had not been set, so the server did not have a specific domain name to bind to (For a user to query). Since I was querying my localhost I had to explicitly set the localhost as the ServerName in the /etc/apache2/apache2.conf
 ‘ServerName’ 127.0.0.1 and on saving and curling again, the default Apache page was returned, showing that the service was running correctly
 
 #### Corrective and Preventive Measures
